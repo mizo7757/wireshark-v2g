@@ -45,6 +45,8 @@ set(PROJECT_PATCH_VERSION 0)
 set(PROJECT_BUILD_VERSION 0)
 set(PROJECT_VERSION_EXTENSION "")
 
+set(CMAKE_WARN_DEPRECATED OFF CACHE BOOL "" FORCE)
+
 if(DEFINED ENV{WIRESHARK_VERSION_EXTRA})
 	set(PROJECT_VERSION_EXTENSION "$ENV{WIRESHARK_VERSION_EXTRA}")
 endif()
@@ -715,7 +717,7 @@ else() # ! MSVC
 		# likely a programming error in C. Turn -Wimplicit-int and
 		# -Wimplicit-function-declaration into an error by default.
 		#
-		-Werror=implicit
+		# -Werror=implicit
 	)
 
 	#

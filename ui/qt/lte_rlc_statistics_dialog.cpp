@@ -798,7 +798,8 @@ tap_packet_status LteRlcStatisticsDialog::tapPacket(void *ws_dlg_ptr, struct _pa
         // Existing UE wasn't found so create a new one.
         ue_ti = new RlcUeTreeWidgetItem(ws_dlg->statsTreeWidget(), rlt_info);
         for (int col = 0; col < ws_dlg->statsTreeWidget()->columnCount(); col++) {
-            ue_ti->setTextAlignment(col, ws_dlg->statsTreeWidget()->headerItem()->textAlignment(col));
+            int alignment = ws_dlg->statsTreeWidget()->headerItem()->textAlignment(col);
+            ue_ti->setTextAlignment(col, Qt::AlignmentFlag(alignment));
         }
     }
 
